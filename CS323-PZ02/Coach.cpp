@@ -27,7 +27,13 @@ float Coach::getSalary() {
 }
 
 void Coach::toString() {
-	cout << "Coach" << endl;
+	cout << "Name --> " << this->name << endl;
+	cout << "Surname --> " << this->surname << endl;
+	cout << "JMBG --> " << this->JMBG << endl;
+	cout << "Age --> " << this->age << endl;
+	cout << "Experience --> " << this->yearsOfExperience << " years" << endl;
+	cout << "Salary --> " << this->salary << endl;
+	cout << "---------------------------" << endl;
 }
 
 Coach::~Coach() {

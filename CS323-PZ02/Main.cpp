@@ -1,5 +1,7 @@
 #include "Gym.h"
 #include "Member.h"
+#include "Coach.h"
+#include "FileUtil.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -11,12 +13,9 @@ void welcomeMenu() {
 }
 
 void create(Member* m) {
-	string name;
-	string surname;
-	string JMBG;
+	string name, surname, JMBG;
 	int age;
-	float height;
-	float weight;
+	float height, weight;
 
 	cout << "Enter your name:" << endl << "--> ";
 	getline(cin, name);
@@ -53,12 +52,21 @@ int main() {
 	gym->showInfo();
 
 	Person* p1 = new Member();
+	Person* p2 = new Coach();
 	Member* member = dynamic_cast<Member*>(p1);
+	Coach* coach = dynamic_cast<Coach*>(p2);
 
 	create(member);
 	member->toString();
 
 	cout << "   >>   We're glad to have you as a new member of the gym!   <<   \n" << endl;
+
+	list<Coach> coaches = FileUtil::readCoaches("coaches.txt");
+
+	cout << "Coaches are:\n" << "---------------------------" << endl;
+	for (Coach& coach : coaches) {
+		coach.toString();
+	}
 
 	delete member;
 	delete gym;
