@@ -54,8 +54,11 @@ float Gym::getMembershipFeePrice() {
 }
 
 void Gym::showInfo() {
-	cout << "Informations about Gym:\nGym name --> " << this->name << "\nAddress --> " << this->address << "\nTax identification number --> "
+	cout << "Informations about Gym:" << endl;
+	cout << "-----------------------------------------" << endl;
+	cout << "Gym name --> " << this->name << "\nAddress --> " << this->address << "\nTax identification number --> "
 		<< this->TIN << "\nNumber of employees --> " << this->numberOfEmployees << "\nMembership fee price --> " << this->membershipFeePrice << endl;
+	cout << endl;
 }
 
 Gym::~Gym() {
