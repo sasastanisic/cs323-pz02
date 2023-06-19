@@ -1,4 +1,5 @@
 #include "Gym.h"
+#include "Member.h"
 #include <iostream>
 using namespace std;
 
@@ -8,22 +9,20 @@ void welcomeMenu() {
 	cout << "-------------------------------------------------------------------------------------------------\n" << endl;
 }
 
-void displayGymInfo(Gym* gym) {
-	gym->setName("SaleGym");
-	gym->setAddress("Toplicka 37/16, Kursumlija");
-	gym->setTIN("4356723901");
-	gym->setNumberOfEmployees(10);
-	gym->setMembershipFeePrice(2500);
-
-	gym->showInfo();
-}
-
 int main() {
 
-	Gym* gym = new Gym();
+	Gym* gym = new Gym("SaleGym", "Toplicka 37/16, Kursumlija", "4356723901", 10, 2500);
 
 	welcomeMenu();
-	displayGymInfo(gym);
+	gym->showInfo();
+
+	Person* p1 = new Member();
+	Member* member = dynamic_cast<Member*>(p1);
+	member->setHeight(186);
+	cout << member->getHeight() << endl;
+
+	delete member;
+	delete gym;
 
 	return 0;
 }
