@@ -1,6 +1,7 @@
 #include "Gym.h"
 #include "Member.h"
 #include "Coach.h"
+#include "Weight.h"
 #include "FileUtil.h"
 #include <iostream>
 #include <string>
@@ -56,7 +57,7 @@ int main() {
 	Member* member = dynamic_cast<Member*>(p1);
 	Coach* coach = dynamic_cast<Coach*>(p2);
 
-	create(member);
+	//create(member);
 	member->toString();
 
 	cout << "   >>   We're glad to have you as a new member of the gym!   <<   \n" << endl;
@@ -67,6 +68,9 @@ int main() {
 	for (Coach& coach : coaches) {
 		coach.toString();
 	}
+
+	Weight* w = new Weight("Lat Pulldown", 5, 100, WeightType::Machine);
+	w->toString();
 
 	delete member;
 	delete gym;
