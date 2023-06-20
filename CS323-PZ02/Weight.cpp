@@ -45,8 +45,11 @@ WeightType Weight::getWeightType() {
 }
 
 void Weight::toString() {
-	cout << "> " << this->name << ", minimum weight: " << this->minWeight << " kg, maximum weight: "
-		<< this->maxWeight << " kg, type: " << printWeightType();
+	cout << "Name --> " << this->name << endl;
+	cout << "Minimum weight --> " << this->minWeight << " kg" << endl;
+	cout << "Maximum weight --> " << this->maxWeight << " kg" << endl;
+	cout << "Type --> " << printWeightType() << endl;
+	cout << "---------------------------" << endl;
 }
 
 string Weight::printWeightType() {

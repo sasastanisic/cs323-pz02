@@ -38,3 +38,50 @@ list<Coach> FileUtil::readCoaches(const string& fileName) {
 
 	return coaches;
 }
+
+list<Weight> FileUtil::readWeights(const string& fileName) {
+	list<Weight> weights;
+
+	ifstream file;
+	file.open(fileName);
+
+	if (!file) {
+		cout << "Error in opening file" << endl;
+		return weights;
+	}
+
+	string line;
+	while (getline(file, line)) {
+		string name, minWeight, maxWeight, weightType;
+
+		stringstream s(line);
+		getline(s, name, ' ');
+		getline(s, minWeight, ' ');
+		getline(s, maxWeight, ' ');
+		getline(s, weightType, ' ');
+
+		for (int i = 0; name[i] != '\0'; i++) {
+			if (name[i] == '_') {
+				name[i] = ' ';
+			}
+		}
+
+		map<string, WeightType> typeMap = {
+			{"Barbell", WeightType::Barbell},
+			{"Dumbbell", WeightType::Dumbell},
+			{"Machine", WeightType::Machine}
+		};
+
+		Weight* weight = new Weight();
+		weight->setName(name);
+		weight->setMinWeight(stof(minWeight));
+		weight->setMaxWeight(stof(maxWeight));
+		weight->setWeightType(typeMap[weightType]);
+
+		weights.push_back(*weight);
+	}
+
+	file.close();
+
+	return weights;
+}

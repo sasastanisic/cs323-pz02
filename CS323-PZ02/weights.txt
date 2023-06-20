@@ -1,0 +1,5 @@
+Bench_Press 12.5 250 Barbell
+Deadlift 20 300 Barbell
+Lat_Pulldown 5 100 Machine
+Arnold_Press 2.5 40 Dumbbell
+Leg_Press 20 300 Machine
