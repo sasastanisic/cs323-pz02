@@ -57,8 +57,8 @@ void Gym::showInfo() {
 	cout << "Informations about Gym:" << endl;
 	cout << "-----------------------------------------" << endl;
 	cout << "Gym name --> " << this->name << "\nAddress --> " << this->address << "\nTax identification number --> "
-		<< this->TIN << "\nNumber of employees --> " << this->numberOfEmployees << "\nMembership fee price --> " << this->membershipFeePrice << endl;
-	cout << endl;
+		<< this->TIN << "\nNumber of employees --> " << this->numberOfEmployees << "\nMembership fee price --> "
+		<< this->membershipFeePrice << "\n" << endl;
 }
 
 Gym::~Gym() {

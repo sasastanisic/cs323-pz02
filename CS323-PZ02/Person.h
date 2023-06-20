@@ -1,4 +1,5 @@
 #pragma once
+#include "MemberNotValidException.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -24,6 +25,8 @@ public:
 	int getAge();
 
 	virtual void toString() = 0;
+	virtual bool containsOnlyLetters(string str);
+	virtual bool containsOnlyDigits(string num);
 
 	virtual ~Person();
 };

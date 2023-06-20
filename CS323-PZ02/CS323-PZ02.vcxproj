@@ -153,6 +153,7 @@
     <ClInclude Include="FileUtil.h" />
     <ClInclude Include="Gym.h" />
     <ClInclude Include="Member.h" />
+    <ClInclude Include="MemberNotValidException.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Util.h" />
     <ClInclude Include="Weight.h" />

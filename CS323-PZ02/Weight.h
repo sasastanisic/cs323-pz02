@@ -8,7 +8,7 @@ enum class WeightType {
 };
 
 class Weight {
-protected:
+private:
 	string name;
 	float minWeight;
 	float maxWeight;

@@ -4,7 +4,7 @@
 using namespace std;
 
 class Gym {
-protected:
+private:
 	string name;
 	string address;
 	string TIN;
