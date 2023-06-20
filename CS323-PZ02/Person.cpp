@@ -48,10 +48,6 @@ string Person::getJMBG() {
 }
 
 void Person::setAge(int age) {
-	if (age < 10 || age > 100 || !containsOnlyDigits(to_string(age))) {
-		throw MemberNotValidException("Age isn't valid!");
-	}
-
 	this->age = age;
 }
 
