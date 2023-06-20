@@ -50,12 +50,40 @@ void Util::showMenu() {
 	char choice;
 	bool exitMenu = false;
 
+	Person* p1 = new Member();
+	Person* p2 = new Coach();
+	Member* member = dynamic_cast<Member*>(p1);
+	Coach* coach = dynamic_cast<Coach*>(p2);
+
+	try {
+
+		while (true) {
+			try {
+				Util::create(member);
+				break;
+			}
+			catch (runtime_error& ex) {
+				cout << ex.what() << endl;
+			}
+		};
+
+		member->toString();
+		cout << "   >>   We're glad to have you as a new member of the gym!   <<   \n" << endl;
+
+	}
+	catch (runtime_error& ex) {
+		cout << ex.what() << endl;
+		return;
+	}
+
 	do {
 		cout << "   >>   Choose an option from the menu:   <<   " << endl;
 		cout << "-----------------------------------------------" << endl;
 		cout << "> 1 - View weights" << endl;
-		cout << "> 2 - View coaches" << endl;
-		cout << "> 3 - Exit" << endl;
+		cout << "> 2 - Calculate BMI" << endl;
+		cout << "> 3 - View coaches" << endl;
+		cout << "> 4 - Check your shape" << endl;
+		cout << "> 5 - Exit" << endl;
 		cout << "-----------------------------------------------" << endl;
 		cout << "--> ";
 		cin >> choice;
@@ -74,6 +102,13 @@ void Util::showMenu() {
 			break;
 		}
 		case '2': {
+			float bmiValue = member->calculateBMI();
+			cout << "Your BMI value is --> " << setprecision(3) << bmiValue << endl;
+
+			cout << "\n" << endl;
+			break;
+		}
+		case '3': {
 			list<Coach> coaches = FileUtil::readCoaches("coaches.txt");
 
 			cout << "Coaches are:\n" << "---------------------------" << endl;
@@ -84,7 +119,14 @@ void Util::showMenu() {
 			cout << "\n" << endl;
 			break;
 		}
-		case '3':
+		case '4': {
+			string advice = member->checkYourShape(member->calculateBMI());
+			cout << "Form check --> " << advice << endl;
+
+			cout << "\n" << endl;
+			break;
+		}
+		case '5':
 			exitMenu = true;
 			cout << "   >>   Thank you for visiting SaleGym!   <<   " << endl;
 			break;
@@ -94,4 +136,7 @@ void Util::showMenu() {
 		}
 
 	} while (!exitMenu);
+
+	delete member;
+	delete coach;
 }

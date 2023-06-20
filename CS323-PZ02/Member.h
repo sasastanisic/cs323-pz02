@@ -15,6 +15,9 @@ public:
 	void setWeight(float weight);
 	float getWeight();
 
+	float calculateBMI();
+	string checkYourShape(float bmiValue);
+
 	void toString() override;
 
 	~Member();

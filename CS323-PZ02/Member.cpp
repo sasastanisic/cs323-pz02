@@ -26,6 +26,29 @@ float Member::getWeight() {
 	return this->weight;
 }
 
+float Member::calculateBMI() {
+	return (this->weight / this->height) * 55;
+}
+
+string Member::checkYourShape(float bmiValue) {
+	string advice = "";
+
+	if (bmiValue <= 18.5) {
+		advice = "You're underweight!";
+	}
+	else if (bmiValue > 18.5 && bmiValue <= 25) {
+		advice = "You're in a great shape!";
+	}
+	else if (bmiValue > 25 && bmiValue <= 30) {
+		advice = "You're overweight!";
+	}
+	else if (bmiValue > 30) {
+		advice = "You're obese!";
+	}
+
+	return advice;
+}
+
 void Member::toString() {
 	cout << "New gym member:" << endl;
 	cout << "---------------------------" << endl;
